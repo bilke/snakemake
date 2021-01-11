@@ -214,6 +214,27 @@ However, ``docker://`` is preferred, as other container runtimes will be support
 When ``--use-singularity`` is combined with ``--kubernetes`` (see :ref:`kubernetes`), cloud jobs will be automatically configured to run in priviledged mode, because this is a current requirement of the singularity executable.
 Importantly, those privileges won't be shared by the actual code that is executed in the singularity container though.
 
+A global definition of a container image can be given:
+
+.. code-block:: python
+
+    container: "docker://joseespinosa/docker-r-ggplot2"
+
+    rule NAME:
+        ...
+
+In this case all jobs will be executed in a container. You can disable execution in container
+with an empty container directive per-rule:
+
+.. code-block:: python
+
+    container: "docker://joseespinosa/docker-r-ggplot2"
+
+    rule NAME:
+        container: None
+        # OR:
+        container: ""
+
 --------------------------------------------------
 Combining Conda package management with containers
 --------------------------------------------------

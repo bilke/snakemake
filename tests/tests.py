@@ -719,6 +719,15 @@ def test_singularity_conda():
     )
 
 
+@skip_on_windows
+@connected
+def test_singularity_none():
+    run(
+        dpath("test_singularity_none"),
+        use_singularity=True,
+    )
+
+
 def test_issue612():
     run(dpath("test_issue612"), dryrun=True)
 
