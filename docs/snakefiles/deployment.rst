@@ -224,7 +224,7 @@ A global definition of a container image can be given:
         ...
 
 In this case all jobs will be executed in a container. You can disable execution in container
-with an empty container directive per-rule:
+by setting the container directive of the rule to ``None``.
 
 .. code-block:: python
 
@@ -232,8 +232,6 @@ with an empty container directive per-rule:
 
     rule NAME:
         container: None
-        # OR:
-        container: ""
 
 --------------------------------------------------
 Combining Conda package management with containers

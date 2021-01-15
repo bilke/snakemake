@@ -1367,10 +1367,7 @@ class Workflow:
                     )
                 rule.container_img = ruleinfo.container_img
             elif self.global_container_img:
-                if not invalid_rule and (
-                    (ruleinfo.container_img != None and ruleinfo.container_img != "")
-                    or ruleinfo.conda_env
-                ):
+                if not invalid_rule and ruleinfo.container_img is not None:
                     # skip rules with run directive or empty image
                     rule.container_img = self.global_container_img
 
