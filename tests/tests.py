@@ -728,6 +728,15 @@ def test_singularity_none():
     )
 
 
+@skip_on_windows
+@connected
+def test_singularity_global():
+    run(
+        dpath("test_singularity_global"),
+        use_singularity=True,
+    )
+
+
 def test_issue612():
     run(dpath("test_issue612"), dryrun=True)
 
